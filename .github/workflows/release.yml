@@ -1,9 +1,10 @@
 name: Release Pipeline
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
+ workflow_run:
+    workflows: ["Build"]
+    types:
+      - completed
 
 jobs:
   release:
